@@ -84,6 +84,7 @@ switch (choice)
         cout<<"AND Gate selected"<<endl;
         cout<<"Enter two binary inputs (0 or 1): ";
         cin>>x>>y;
+        
         if( (x!=0 && x!=1) || (y!=0 && y!=1))
         {
         cout<<"Invalid input";
