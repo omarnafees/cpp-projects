@@ -1,1 +1,1 @@
-# Binary & Digital Systems Simulator
+ # Digital Systems Simulator
