@@ -2,8 +2,7 @@
 #include "binary/number_inspector.hpp"
 #include <iostream>
 using namespace std;
-int main()
-{
+void numberSystem(){
 int enteredNum;
 
 while (true)
@@ -32,21 +31,10 @@ displayOctal(enteredNum);
 displayHexadecimal(enteredNum);
 displaySize(enteredNum);
 
-int a,b;
-cout<<"Enter First Integer"<<endl;
-cin>> a;
-cout<<"Enter Second Integer"<<endl;
-cin>>b;
-displayBitwiseAND(a,b);
-displayBitwiseOR(a, b);
-displayBitwiseXOR(a, b);
-displayBitwiseNot(a,b);
 
+}
 
-
-
-
-
+void logicGates(){
 
 while (true)
 {
@@ -283,23 +271,22 @@ switch (choice)
     {
      cout << "Enter two binary inputs (0 or 1): ";
     cin >>x>> y;
-
-        if (cin.fail())
-        {
-         cout << "Invalid input! Enter numbers only." << endl;
-         cin.clear();
-        cin.ignore(10000, '\n');
-        }
-        else if ((x != 0 && x != 1) || (y != 0 && y != 1))
-        {
-        cout << "Invalid input! Enter only 0 or 1." << endl;
+    if (cin.fail())
+    {
+     cout << "Invalid input! Enter numbers only." << endl;
+     cin.clear();
+    cin.ignore(10000, '\n');
+    }
+    else if ((x != 0 && x != 1) || (y != 0 && y != 1))
+    {
+    cout << "Invalid input! Enter only 0 or 1." << endl;
     }
     else
-        {
-        cout << "Result: " << NORGate(x, y) << endl;
-        break;    
-        }
-        }
+     {
+    cout << "Result: " << NORGate(x, y) << endl;
+    break;    
+     }
+     }
     break;
     }
 
@@ -315,8 +302,70 @@ cout << "Exiting Logic Gates Simulator..."<<endl;
 
 
 
+}
+
+
+int main()
+{
+    int choice;
+    while (true)
+{
+cout<<"===================================="<<endl;
+cout << "Digital Systems Simulator" << endl;
+cout<<"===================================="<<endl;
+
+
+    cout<<"Welcome! Choose a tool to get started"<<endl;
+    cout<<"1.Number Systems & Binary Tools"<<endl;
+    cout<<"2.Digital Logic Gates"<<endl;
+    cout<<"0.Exit"<<endl;
+    cout<<"Enter your choice";
+    while (true)
+{
+    cin >> choice;
+
+    if (cin.fail())
+    {
+        cout << "Invalid input! Try again."<<endl;;
+        cin.clear();
+        cin.ignore(10000, '\n');
+    }
+    else if (choice < 0 || choice > 2)
+{
+    cout << "Invalid choice! Choose between 0 and 2." << endl;
+}
+       else
+    {
+        break;
+    }
+}
+    switch(choice)
+{
+    case 1:
+    numberSystem();
+    break;
+
+    case  2:
+    logicGates();
+    break;
+
+    case 0:
+    cout << "Goodbye!" << endl;
+    return 0;
+
+
+}
+
+}
 return 0;
 }
+
+
+
+
+
+
+
 
 
 // g++ -std=c++17 -Wall -Wextra -I binary-digital-systems-simulator/include binary-digital-systems-simulator/src/main.cpp binary-digital-systems-simulator/src/binary/number_inspector.cpp binary-digital-systems-simulator/src/logic/logic_gates.cpp -o binary-digital-systems-simulator.exe
