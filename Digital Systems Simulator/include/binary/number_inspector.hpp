@@ -6,7 +6,6 @@ void displayBinary(int x);
 void displayOctal(int x);
 void displayHexadecimal(int x);
 void displaySize(int x); 
-void displayRange();
 void displayUnsigned(int x);
 void display8BitBinary(int x);
 void displayBitwiseAND(int a, int b);

@@ -26,11 +26,6 @@ void displaySize(int x)
     cout << "Size: " << sizeof(x) << " bytes" << endl;
 }
 
-void displayRange()
-{
-    cout << "Minimum: " << numeric_limits<int>::min() << endl;
-    cout << "Maximum: " << numeric_limits<int>::max() << endl;
-}
 void displayUnsigned(int x)
 {
     cout << "Unsigned: " << static_cast<unsigned int>(x) << endl;
