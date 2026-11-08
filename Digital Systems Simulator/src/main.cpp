@@ -3,8 +3,7 @@
 #include "binary/binary_arithmetic.hpp"
 #include <iostream>
 using namespace std;
-string binaryaddition(string x, string y);
-string binarysubtraction(string x, string y);
+
 void numberSystem()
 {
     int enteredNum;
@@ -52,7 +51,7 @@ void logicGates()
         cout << "4.XOR" << endl;
         cout << "5.NAND" << endl;
         cout << "6.NOR" << endl;
-        cout<<"0.Back"<<endl;
+        cout << "0.Back" << endl;
 
         int x, y;
         while (true)
@@ -312,16 +311,14 @@ void binaryarithmetics()
         cout << "-------------------" << endl;
         cout << "===Binary Arithmetics===" << endl;
         cout << "1.Binary Addition" << endl;
-        cout << "2.Binary Substraction" << endl;
+        cout << "2.Binary Subtraction" << endl;
         cout << "0.Back" << endl;
 
-        
         while (true)
         {
             cout << "Choose an operation (1-2) or 0 to go back: ";
 
             cin >> choice;
-
             if (cin.fail())
             {
                 cout << "Invalid input! Enter a number." << endl;
@@ -340,26 +337,30 @@ void binaryarithmetics()
 
         if (choice == 0)
         {
-        break;
+            cout << "Returning to main menu..." << endl;
+            break;
         }
+
         switch (choice)
         {
         case 1:
         {
             string x, y;
+            cout << "Binary Addition selected" << endl;
             cout << "Enter two 4-bit binary numbers (e.g., 1010):" << endl;
             cout << "Enter first binary number: ";
             cin >> x;
             cout << "Enter second binary number: ";
             cin >> y;
 
-            cout << "Result: " << binaryaddition (x, y) << endl;
+            cout << "Result: " << binaryaddition(x, y) << endl;
             break;
         }
 
         case 2:
         {
             string x, y;
+            cout << "Binary Subtraction selected" << endl;
             cout << "Enter two 4-bit binary numbers (e.g., 1010):" << endl;
             cout << "Enter first binary number: ";
             cin >> x;
@@ -372,67 +373,60 @@ void binaryarithmetics()
         }
     }
 }
-        int main()
+int main()
+{
+    int choice;
+    while (true)
+    {
+        cout << "====================================" << endl;
+        cout << "     Digital Systems Simulator     " << endl;
+        cout << "====================================" << endl;
+
+        cout << "Welcome! Choose a tool to get started" << endl;
+        cout << "1.Number Systems & Binary Tools" << endl;
+        cout << "2.Digital Logic Gates" << endl;
+        cout << "3.Binary Arithmetic" << endl;
+
+        cout << "0.Exit" << endl;
+        cout << "Enter your choice: ";
+        while (true)
         {
-            int choice;
-            while (true)
+            cin >> choice;
+
+            if (cin.fail())
             {
-                cout << "====================================" << endl;
-                cout << "     Digital Systems Simulator     " << endl;
-                cout << "====================================" << endl;
+                cout << "Invalid input! Try again." << endl;
 
-                cout << "Welcome! Choose a tool to get started" << endl;
-                cout << "1.Number Systems & Binary Tools" << endl;
-                cout << "2.Digital Logic Gates" << endl;
-                cout << "3.Binary Arithmetic" << endl;
-                
+                cin.clear();
+                cin.ignore(10000, '\n');
+            }
+            else if (choice < 0 || choice > 3)
+            {
+                cout << "Invalid choice! Choose between 0 and 3." << endl;
+            }
+            else
+            {
+                break;
+            }
+        }
+        switch (choice)
+        {
+        case 1:
+            numberSystem();
+            break;
 
-                cout << "0.Exit" << endl;
-                cout << "Enter your choice: ";
-                while (true)
-                {
-                    cin >> choice;
+        case 2:
+            logicGates();
+            break;
 
-                    if (cin.fail())
-                    {
-                        cout << "Invalid input! Try again." << endl;
+        case 3:
+            binaryarithmetics();
+            break;
 
-                        cin.clear();
-                        cin.ignore(10000, '\n');
-                    }
-                    else if (choice < 0 || choice > 3)
-                    {
-                        cout << "Invalid choice! Choose between 0 and 3." << endl;
-                    }
-                    else
-                    {
-                        break;
-                    }
-                }
-                switch (choice)
-                {
-                case 1:
-                    numberSystem();
-                    break;
-
-                case 2:
-                    logicGates();
-                    break;
-
-                case 3:
-                    binaryarithmetics();
-                    break;
-
-                    case 0:
-                    cout << "Goodbye!" << endl;
-                    return 0;
-                }
-            
-            
-            } 
-        return 0;
+        case 0:
+            cout << "Goodbye!" << endl;
+            return 0;
+        }
     }
-        
-
-            // g++ -std=c++17 -Wall -Wextra -I "Digital Systems Simulator/include" "Digital Systems Simulator/src/main.cpp" "Digital Systems Simulator/src/binary/number_inspector.cpp" "Digital Systems Simulator/src/binary/binary_arithmetic.cpp" "Digital Systems Simulator/src/logic/logic_gates.cpp" -o digital-systems-simulator.exe
-            // .\digital-systems-simulator.exe
+    return 0;
+}
